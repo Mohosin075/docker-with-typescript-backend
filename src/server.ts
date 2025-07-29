@@ -6,6 +6,8 @@ import { errorlogger, logger } from "./app/src/shared/logger";
 
 let server: Server;
 
+// docker run -p 5000:5000 --name ts-container --rm -w //app -v ts-docker-logs://app/logs -v "//$(pwd)"://app -v //app/node_modules --env-file .env  ts-docker:v4
+
 async function main() {
   try {
     await mongoose.connect(config.database_url as string);

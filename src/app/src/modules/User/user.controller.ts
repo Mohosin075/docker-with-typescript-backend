@@ -5,10 +5,12 @@ import { catchAsync } from '../../../utils/catchAsync';
 import sendResponse from '../../../utils/sendResponse';
 
 const userRegister = catchAsync(async (req, res) => {
-  console.log(req.body);
+  console.log("hit")
+  const data =JSON.parse(req.body.data);
+  console.log(data);
   console.log(req.file);
   const user = await UserServices.createUser({
-    ...JSON.parse(req.body.data),
+    ...data,
     profilePhoto: req.file?.path,
   });
 
